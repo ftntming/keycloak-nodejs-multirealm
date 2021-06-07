@@ -61,6 +61,10 @@ module.exports = class {
       if (!realm) {
         return this.accessDenied(req, res);
       }
+      if(req.params && req.params.realm !== realm) {
+        // can not access across realm
+        return this.accessDenied(req, res);
+      }
       const keycloakObject = this.getKeycloakObjectForRealm(realm);
       // eslint-disable-next-line new-cap
       Protect(keycloakObject, spec)(req, res, next);
