@@ -61,7 +61,7 @@ module.exports = class {
       if (!realm) {
         return this.accessDenied(req, res);
       }
-      if(req.params && req.params.realm !== realm) {
+      if(req.params && req.params.realm && (req.params.realm !== realm)) {
         // can not access across realm
         return this.accessDenied(req, res);
       }
