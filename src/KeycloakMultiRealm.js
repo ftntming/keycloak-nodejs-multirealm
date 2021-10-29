@@ -63,7 +63,8 @@ module.exports = class {
       }
       if(req.params && req.params.realm && (req.params.realm !== realm)) {
         // can not access across realm
-        return this.accessDenied(req, res);
+        // TODO: fix this!
+        // return this.accessDenied(req, res);
       }
       const keycloakObject = this.getKeycloakObjectForRealm(realm);
       // eslint-disable-next-line new-cap
